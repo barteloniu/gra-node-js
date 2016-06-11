@@ -4,5 +4,5 @@ ctx.fillText("Hello, World!", 10, 50);
 
 var socket = io();
 socket.on("ileOnline", function (data) {
-  document.write("Online: " + data.ile + "!");
+  document.getElementById("tekst").innerHTML = "Online: " + data.ile + "!";
 });
