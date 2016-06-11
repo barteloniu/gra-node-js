@@ -9,3 +9,7 @@ app.get("/", function (req, res) {
 app.use("/client", express.static(__dirname + "/client"));
 server.listen(port);
 console.log("Server started on port " + port + "!");
+ var io = require("socket.io")(server, {});
+ io.sockets.on("connection", function (socket) {
+   console.log("Socket connection!");
+ });
