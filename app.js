@@ -18,4 +18,5 @@ console.log("Server started on port " + port + "!");
    socket.id = Math.random();
    socketList[socket.id] = socket;
    socket.emit("ileOnline", {ile:socketList.length});
+   console.log(socketList.length);
  });
