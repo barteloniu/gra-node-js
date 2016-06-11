@@ -20,9 +20,16 @@ console.log("Server started on port " + port + "!");
    socketList[socket.id] = socket;
    ileOnline++
    socket.emit("ileOnline", {ile:ileOnline});
-   
+
    socket.on("disconnect", function () {
      delete socketList[socket.id];
      ileOnline--;
+     emitDisconnect();
    });
  });
+ function emitDisconnect() {
+   for (var i = 0; i < socketList.length; i++) {
+     var socket = socketList[i];
+     socket.emit("ileOnline", {ile:ileOnline});
+   }
+ }
