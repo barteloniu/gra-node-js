@@ -8,4 +8,4 @@ app.get("/", function (req, res) {
 });
 app.use("/client", express.static(__dirname + "/client"));
 server.listen(port);
-console.log("Server started on port " + port);
+console.log("Server started on port " + port + "!");
