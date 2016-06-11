@@ -1,0 +1,22 @@
+{
+  "name": "gra-node-js",
+  "version": "0.0.1",
+  "description": "Prosta gra",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barteloniu/gra-node-js.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "barteloniu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barteloniu/gra-node-js/issues"
+  },
+  "homepage": "https://github.com/barteloniu/gra-node-js#readme"
+}
