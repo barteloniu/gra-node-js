@@ -3,3 +3,6 @@ ctx.fillRect(10, 10, 10, 10);
 ctx.fillText("Hello, World!", 10, 50);
 
 var socket = io();
+socket.on("ileOnline", function (data) {
+  document.write("Online: " + data.ile + "!");
+});

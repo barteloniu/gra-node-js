@@ -8,8 +8,14 @@ app.get("/", function (req, res) {
 });
 app.use("/client", express.static(__dirname + "/client"));
 server.listen(port);
+
 console.log("Server started on port " + port + "!");
+
  var io = require("socket.io")(server, {});
+ var socketList = [];
  io.sockets.on("connection", function (socket) {
    console.log("Socket connection!");
+   socket.id = Math.random();
+   socketList[socket.id] = socket;
+   socket.emit("ileOnline", {ile:socketList.length});
  });
