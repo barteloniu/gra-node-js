@@ -16,6 +16,7 @@ console.log("Server started on port " + port + "!");
  io.sockets.on("connection", function (socket) {
    console.log("Socket connection!");
    socket.id = Math.random();
+   console.log(socket.id);
    socketList[socket.id] = socket;
    socket.emit("ileOnline", {ile:socketList.length});
    console.log(socketList.length);
