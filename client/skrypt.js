@@ -7,9 +7,10 @@ socket.on("ileOnline", function (data) {
   document.getElementById("tekst").innerHTML = "Online: " + data + "!";
 });
 
-socket.on("newPos", function (data) {
+socket.on("players", function (data) {
   ctx.clearRect(0, 0, 500, 500);
   for(var i = 0;i < data.length; i++){
+    ctx.fillStyle = data.color;
     ctx.fillText("@", data[i].x, data[i].y);
   }
 });

@@ -20,7 +20,8 @@ var Player = function (id) {
     czyA: false,
     czyW: false,
     czyS: false,
-    speed:5
+    speed:5,
+    color: "#000"
   };
   self.updatePos = function () {
     if(self.czyD)self.x+= self.speed;
@@ -42,6 +43,7 @@ io.sockets.on("connection", function (socket) {
 
  var player = Player(socket.id);
  playerList[socket.id] = player;
+ player.color = randomColor();
 
  logIleOnline();
 
@@ -58,6 +60,15 @@ io.sockets.on("connection", function (socket) {
    player.czyS = data.keys[83];
  });
 });
+
+function randomColor() {
+  var letters = "0123456789ABCDEF".split("");
+  var color = "#";
+  for(var i = 0; i < 6; i++){
+    color+= letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 function logIleOnline () {
   var ileOnline = 0;
@@ -76,10 +87,10 @@ setInterval(function () {
   for(var i in playerList){
     var player = playerList[i];
     player.updatePos();
-    pack.push({x: player.x, y:player.y});
+    pack.push({x: player.x, y:player.y, color:player.color});
   }
   for (var i in socketList) {
     var socket = socketList[i];
-    socket.emit("newPos", pack);
+    socket.emit("players", pack);
   }
 }, 1000/30);
