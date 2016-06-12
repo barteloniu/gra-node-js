@@ -1,4 +1,5 @@
 var ctx = document.getElementById("canvas").getContext("2d");
+ctx.font = "20px Arial";
 
 var keys = [];
 
@@ -27,10 +28,11 @@ function start() {
       ctx.beginPath();
       ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
       ctx.fill();
+      ctx.textAlign = "center";
       ctx.fillText(data[i].nick, data[i].x, data[i].y - 30);
     }
     ctx.fillStyle = "#cbcbcb";
-    ctx.font = "20px Arial";
+    ctx.textAlign = "left";
     ctx.fillText("Online: " + ileOnline, 10, 30);
   });
 
