@@ -2,11 +2,11 @@ var ctx = document.getElementById("canvas").getContext("2d");
 
 var keys = [];
 
-document.getElementById("canvas").style.display = none;
+document.getElementById("canvas").style.display = "none";
 
 function start() {
-  document.getElementById("grajButton").style.display = none;
-  document.getElementById("canvas").style.display = inline;
+  document.getElementById("grajButton").style.display = "none";
+  document.getElementById("canvas").style.display = "inline";
   var socket = io();
   socket.on("ileOnline", function (data) {
     document.getElementById("tekst").innerHTML = "Online: " + data + "!";
