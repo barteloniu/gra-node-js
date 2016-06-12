@@ -22,6 +22,12 @@ var Player = function (id) {
     czyS: false,
     speed:5
   };
+  self.updatePos = function () {
+    if(self.czyD)self.x+= self.speed;
+    if(self.czyA)self.x-= self.speed;
+    if(self.czyS)self.y+= self.speed;
+    if(self.czyW)self.y-= self.speed;
+  };
   return self;
 }
 
@@ -50,7 +56,6 @@ io.sockets.on("connection", function (socket) {
    player.czyA = data.keys[65];
    player.czyW = data.keys[87];
    player.czyS = data.keys[83];
-   console.log(player);
  });
 });
 
@@ -61,7 +66,20 @@ function logIleOnline () {
   }
   for (var i in socketList) {
     var socket = socketList[i];
-    socket.emit("ileOnline", {ile: ileOnline});
+    socket.emit("ileOnline", ileOnline);
   }
   console.log("Online:" + ileOnline);
 }
+
+setInterval(function () {
+  var pack = [];
+  for(var i in playerList){
+    var player = playerList[i];
+    player.updatePos();
+    pack.push({x: player.x, y:player.y});
+  }
+  for (var i in socketList) {
+    var socket = socketList[i];
+    socket.emit("newPos", pack);
+  }
+}, 1000/30);
