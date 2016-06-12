@@ -44,6 +44,7 @@ io.sockets.on("connection", function (socket) {
  var player = Player(socket.id);
  playerList[socket.id] = player;
  player.color = randomColor();
+ console.log(player.color);
 
  logIleOnline();
 
