@@ -11,18 +11,46 @@ server.listen(port);
 
 console.log("Server started on port " + port + "!");
 
+var Player = function (id) {
+  var self = {
+    x:250,
+    y:250,
+    id:id,
+    czyD: false,
+    czyA: false,
+    czyW: false,
+    czyS: false,
+    speed:5
+  };
+  return self;
+}
+
 var io = require("socket.io")(server, {});
 var socketList = {};
+var playerList = {};
 
 io.sockets.on("connection", function (socket) {
  console.log("Socket connection!");
  socket.id = Math.random();
  socketList[socket.id] = socket;
+
+ var player = Player(socket.id);
+ playerList(socket.id) = player;
+
  logIleOnline();
 
  socket.on("disconnect", function () {
    delete socketList[socket.id];
+   delete playerList[socket.id];
    logIleOnline();
+ });
+
+ socket.on("keypress", function (data) {
+   player.czyD = data.keys[68];
+   player.czyA = data.keys[65];
+   player.czyW = data.keys[87];
+   player.czyS = data.keys[83];
+   console.log(player);
  });
 });
 
