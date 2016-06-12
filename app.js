@@ -12,25 +12,23 @@ server.listen(port);
 console.log("Server started on port " + port + "!");
 
 var io = require("socket.io")(server, {});
-var socketList = [];
-var ileOnline = 0;
+var socketList = {};
 io.sockets.on("connection", function (socket) {
  console.log("Socket connection!");
  socket.id = Math.random();
  socketList[socket.id] = socket;
- ileOnline++
- socket.emit("ileOnline", {ile:ileOnline});
+ socket.emit("ileOnline", {ile:socketList.length});
 
  socket.on("disconnect", function () {
    delete socketList[socket.id];
-   ileOnline--;
  });
 });
+
 setInterval(function () {
   console.log(socketList.length);
   for (var i = 0; i < socketList.length; i++) {
     console.log(socketList.length);
     var socket = socketList[i];
-    socket.emit("ileOnline", {ile:ileOnline});
+    socket.emit("ileOnline", {ile:socketList.length});
   }
 }, 100);
