@@ -23,7 +23,7 @@ function start() {
       ctx.fill();
     }
     ctx.fillStyle = "#000";
-    ctx.font = "30px Arial";
+    ctx.font = "25px Arial";
     ctx.fillText("Online: " + ileOnline + "!", 10, 10);
   });
 
