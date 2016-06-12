@@ -31,7 +31,7 @@ function start() {
     }
     ctx.fillStyle = "#cbcbcb";
     ctx.font = "20px Arial";
-    ctx.fillText("Online: " + ileOnline, 10, 30);
+    ctx.fillText("Online: " + ileOnline, 10, 50);
   });
 
   document.onkeydown = function (event) {
