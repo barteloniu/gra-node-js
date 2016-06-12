@@ -44,7 +44,6 @@ io.sockets.on("connection", function (socket) {
  var player = Player(socket.id);
  playerList[socket.id] = player;
  player.color = randomColor();
- console.log(player.color);
 
  logIleOnline();
 
@@ -88,6 +87,7 @@ setInterval(function () {
   for(var i in playerList){
     var player = playerList[i];
     player.updatePos();
+    console.log(player.color);
     pack.push({x: player.x, y:player.y, color:player.color});
   }
   for (var i in socketList) {
