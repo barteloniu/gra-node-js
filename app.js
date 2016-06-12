@@ -31,5 +31,9 @@ function logIleOnline () {
   for (var i in socketList) {
     ileOnline++;
   }
+  for (var i in socketList) {
+    var socket = socketList[i];
+    socket.emit("ileOnline", {ile: ileOnline});
+  }
   console.log("Online:" + ileOnline);
 }
