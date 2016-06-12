@@ -23,8 +23,7 @@ function start() {
       ctx.fill();
     }
     ctx.fillStyle = "#000";
-    ctx.fillText(10, 10, "Online: " + ileOnline + "!");
-    console.log("maslo");
+    ctx.fillText("Online: " + ileOnline + "!", 10, 10);
   });
 
   document.onkeydown = function (event) {
