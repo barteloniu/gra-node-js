@@ -13,20 +13,14 @@ console.log("Server started on port " + port + "!");
 
 var io = require("socket.io")(server, {});
 var socketList = {};
+
 io.sockets.on("connection", function (socket) {
  console.log("Socket connection!");
  socket.id = Math.random();
  socketList[socket.id] = socket;
- socket.emit("ileOnline", {ile:socketList.length});
+ console.log(socketList);
 
  socket.on("disconnect", function () {
    delete socketList[socket.id];
  });
 });
-
-setInterval(function () {
-  for (var i = 0; i < socketList.length; i++) {
-    var socket = socketList[i];
-    socket.emit("ileOnline", {ile:socketList.length});
-  }
-}, 100);
