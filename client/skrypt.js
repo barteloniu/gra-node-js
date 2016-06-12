@@ -24,6 +24,7 @@ function start() {
       ctx.beginPath();
       ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
       ctx.fill();
+      ctx.fillText(data[i].nick, data[i].x, data[i].y + 15);
     }
     ctx.fillStyle = "#cbcbcb";
     ctx.font = "20px Arial";

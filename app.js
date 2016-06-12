@@ -21,7 +21,8 @@ var Player = function (id) {
     czyW: false,
     czyS: false,
     speed:5,
-    color: "#000"
+    color: "#000",
+    nick:""
   };
   self.updatePos = function () {
     if(self.czyD)self.x+= self.speed;
@@ -44,6 +45,10 @@ io.sockets.on("connection", function (socket) {
  var player = Player(socket.id);
  playerList[socket.id] = player;
  player.color = randomColor();
+
+ socket.on("nick", function (data) {
+   player.nick = data;
+ });
 
  logIleOnline();
 
@@ -87,7 +92,7 @@ setInterval(function () {
   for(var i in playerList){
     var player = playerList[i];
     player.updatePos();
-    pack.push({x: player.x, y:player.y, color:player.color});
+    pack.push({x: player.x, y:player.y, color:player.color, nick:player.nick});
   }
   for (var i in socketList) {
     var socket = socketList[i];
