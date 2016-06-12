@@ -87,7 +87,6 @@ setInterval(function () {
   for(var i in playerList){
     var player = playerList[i];
     player.updatePos();
-    console.log(player.color);
     pack.push({x: player.x, y:player.y, color:player.color});
   }
   for (var i in socketList) {

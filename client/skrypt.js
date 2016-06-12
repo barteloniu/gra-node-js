@@ -10,8 +10,7 @@ socket.on("ileOnline", function (data) {
 socket.on("players", function (data) {
   ctx.clearRect(0, 0, 500, 500);
   for(var i = 0;i < data.length; i++){
-    ctx.fillStyle = data.color;
-    console.log(data.color);
+    ctx.fillStyle = data[i].color;
     ctx.fillText("@", data[i].x, data[i].y);
   }
 });
