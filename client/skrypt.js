@@ -4,6 +4,10 @@ var keys = [];
 
 var ileOnline = 0;
 
+document.getElementById("nick").onkeydown = function (event) {
+  if(event.keyCode == 13) start();
+};
+
 function start() {
   document.getElementById("grajButton").style.display = "none";
   document.getElementById("nick").style.display = "none";
@@ -16,7 +20,6 @@ function start() {
   socket.on("ileOnline", function (data) {
     ileOnline = data;
   });
-
   socket.on("players", function (data) {
     ctx.clearRect(0, 0, 500, 500);
     for(var i = 0;i < data.length; i++){
@@ -24,7 +27,7 @@ function start() {
       ctx.beginPath();
       ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
       ctx.fill();
-      ctx.fillText(data[i].nick, data[i].x, data[i].y + 15);
+      ctx.fillText(data[i].nick, data[i].x, data[i].y - 15);
     }
     ctx.fillStyle = "#cbcbcb";
     ctx.font = "20px Arial";
