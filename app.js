@@ -18,10 +18,16 @@ io.sockets.on("connection", function (socket) {
  console.log("Socket connection!");
  socket.id = Math.random();
  socketList[socket.id] = socket;
- console.log("Online: " + socketList.length);
 
  socket.on("disconnect", function () {
    delete socketList[socket.id];
-   console.log("Online: " + socketList.length);
  });
+});
+
+setInterval(function () {
+  var ileOnline = 0;
+  for (var i in socketList) {
+    ileOnline++;
+  }
+  console.log("Online:" + ileOnline);
 });
