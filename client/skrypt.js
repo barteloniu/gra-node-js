@@ -5,10 +5,14 @@ var keys = [];
 var ileOnline = 0;
 
 function start() {
-  console.log(document.getElementById("nick").value);
   document.getElementById("grajButton").style.display = "none";
+  document.getElementById("nick").style.display = "none";
   document.getElementById("canvas").style.display = "inline";
+
   var socket = io();
+
+  socket.emit("nick", document.getElementById("nick").value);
+
   socket.on("ileOnline", function (data) {
     ileOnline = data;
   });
