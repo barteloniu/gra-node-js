@@ -28,6 +28,7 @@ io.sockets.on("connection", function (socket) {
 });
 setInterval(function () {
   for (var i = 0; i < socketList.length; i++) {
+    console.log(socketList.length);
     var socket = socketList[i];
     socket.emit("ileOnline", {ile:ileOnline});
   }
