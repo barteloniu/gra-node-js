@@ -35,7 +35,7 @@ io.sockets.on("connection", function (socket) {
  socketList[socket.id] = socket;
 
  var player = Player(socket.id);
- playerList(socket.id) = player;
+ playerList[socket.id] = player;
 
  logIleOnline();
 
