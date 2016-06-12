@@ -2,6 +2,8 @@ var ctx = document.getElementById("canvas").getContext("2d");
 
 var keys = [];
 
+var ileOnline = 0;
+
 document.getElementById("canvas").style.display = "none";
 
 function start() {
@@ -9,7 +11,7 @@ function start() {
   document.getElementById("canvas").style.display = "inline";
   var socket = io();
   socket.on("ileOnline", function (data) {
-    document.getElementById("tekst").innerHTML = "Online: " + data + "!";
+    ileOnline = data;
   });
 
   socket.on("players", function (data) {
@@ -20,6 +22,8 @@ function start() {
       ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
       ctx.fill();
     }
+    ctx.fillStyle = "#000";
+    ctx.fillText(10, 10, "Online: " + ileOnline + "!");
   });
 
   document.onkeydown = function (event) {
