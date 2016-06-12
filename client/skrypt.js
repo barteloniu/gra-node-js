@@ -12,7 +12,7 @@ socket.on("players", function (data) {
   for(var i = 0;i < data.length; i++){
     ctx.fillStyle = data[i].color;
     ctx.beginPath();
-    ctx.arc(data.x, data.y, 20, 0, 2 * Math.PI);
+    ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
     ctx.fill();
   }
 });
