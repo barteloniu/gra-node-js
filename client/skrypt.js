@@ -11,7 +11,9 @@ socket.on("players", function (data) {
   ctx.clearRect(0, 0, 500, 500);
   for(var i = 0;i < data.length; i++){
     ctx.fillStyle = data[i].color;
-    ctx.fillText("@", data[i].x, data[i].y);
+    ctx.beginPath();
+    ctx.arc(data.x, data.y, 20, 0, 2 * Math.PI);
+    ctx.fill();
   }
 });
 
