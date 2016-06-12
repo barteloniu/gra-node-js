@@ -22,9 +22,9 @@ function start() {
       ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
       ctx.fill();
     }
-    ctx.fillStyle = "#000";
+    ctx.fillStyle = "#cbcbcb";
     ctx.font = "20px Arial";
-    ctx.fillText("Online: " + ileOnline + "!", 10, 30);
+    ctx.fillText("Online: " + ileOnline, 10, 30);
   });
 
   document.onkeydown = function (event) {
