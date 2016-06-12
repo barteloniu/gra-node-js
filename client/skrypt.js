@@ -4,8 +4,6 @@ var keys = [];
 
 var ileOnline = 0;
 
-document.getElementById("canvas").style.display = "none";
-
 function start() {
   console.log(document.getElementById("nick").value);
   document.getElementById("grajButton").style.display = "none";
