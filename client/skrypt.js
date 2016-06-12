@@ -23,8 +23,8 @@ function start() {
       ctx.fill();
     }
     ctx.fillStyle = "#000";
-    ctx.font = "25px Arial";
-    ctx.fillText("Online: " + ileOnline + "!", 10, 10);
+    ctx.font = "20px Arial";
+    ctx.fillText("Online: " + ileOnline + "!", 10, 30);
   });
 
   document.onkeydown = function (event) {
