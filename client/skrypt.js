@@ -47,7 +47,7 @@ function start() {
       }else {
         ctx.arc(data[i].x + ctx.canvas.width / 2 - player.x, data[i].y + ctx.canvas.height / 2 - player.y, 20, 0, 2 * Math.PI);
         ctx.fill();
-        ctx.fillText(data[i].nick, data[i].x, data[i].y - 30);
+        ctx.fillText(data[i].nick, data[i].x + ctx.canvas.width / 2 - player.x + ctx.canvas.height / 2 - player.y, data[i].y - 30);
       }
     }
     ctx.fillStyle = "#cbcbcb";
