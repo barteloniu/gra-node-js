@@ -32,7 +32,7 @@ function start() {
   socket.on("players", function (data) {
     ctx.clearRect(0, 0, 500, 500);
 
-    for (var y = 0; y < 10; y++) {
+    for (var x = 0; x < 10; x++) {
       for (var y = 0; y < 10; y++) {
         ctx.drawImage(x * 1001 + ctx.canvas.width / 2 - player.x, y * 1000 + ctx.canvas.height / 2);
       }

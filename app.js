@@ -85,7 +85,7 @@ function logIleOnline () {
     var socket = socketList[i];
     socket.emit("ileOnline", ileOnline);
   }
-  console.log("Online:" + ileOnline);
+  console.log("Online: " + ileOnline);
 }
 
 setInterval(function () {
