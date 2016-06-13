@@ -41,6 +41,7 @@ io.sockets.on("connection", function (socket) {
  console.log("Socket connection!");
  socket.id = Math.random();
  socketList[socket.id] = socket;
+ socket.emit("id", socket.id);
 
  var player = Player(socket.id);
  playerList[socket.id] = player;
