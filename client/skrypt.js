@@ -3,6 +3,7 @@ ctx.font = "20px Arial";
 
 var keys = [];
 var ileOnline = 0;
+var siatka = document.getElementById("siatka");
 var player = {
   x:0,
   y:0,
@@ -34,7 +35,7 @@ function start() {
 
     for (var x = 0; x < 10; x++) {
       for (var y = 0; y < 10; y++) {
-        ctx.drawImage(x * 1001 + ctx.canvas.width / 2 - player.x, y * 1000 + ctx.canvas.height / 2);
+        ctx.drawImage(siatka, x * 1001 + ctx.canvas.width / 2 - player.x, y * 1000 + ctx.canvas.height / 2);
       }
     }
 
