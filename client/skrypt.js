@@ -33,8 +33,8 @@ function start() {
   socket.on("players", function (data) {
     ctx.clearRect(0, 0, 500, 500);
 
-    for (var x = 0; x < 10; x++) {
-      for (var y = 0; y < 10; y++) {
+    for (var x = -10; x < 10; x++) {
+      for (var y = -10; y < 10; y++) {
         ctx.drawImage(siatka, x * 1000 + ctx.canvas.width / 2 - player.x, y * 1000 + ctx.canvas.height / 2 - player.y);
       }
     }
