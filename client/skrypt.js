@@ -3,7 +3,11 @@ ctx.font = "20px Arial";
 
 var keys = [];
 var ileOnline = 0;
-var id = 0;
+var player = {
+  x:0,
+  y:0,
+  id:0
+};
 
 document.getElementById("nick").onkeydown = function (event) {
   if(event.keyCode == 13) start();
@@ -18,7 +22,7 @@ function start() {
   socket.emit("nick", document.getElementById("nick").value);
 
   socket.on("id", function (data) {
-    id = data;
+    player.id = data;
   });
 
   socket.on("ileOnline", function (data) {
@@ -27,16 +31,23 @@ function start() {
 
   socket.on("players", function (data) {
     ctx.clearRect(0, 0, 500, 500);
+
     for(var i = 0;i < data.length; i++){
       ctx.fillStyle = data[i].color;
-      ctx.beginPath();
-      ctx.arc(data[i].x, data[i].y, 20, 0, 2 * Math.PI);
-      ctx.fill();
       ctx.textAlign = "center";
-      ctx.fillText(data[i].nick, data[i].x, data[i].y - 30);
+      ctx.beginPath();
 
-      if(data[i].id == id){
+      if(data[i].id == player.id){
         ctx.canvas.style.border = "1px solid " + data[i].color;
+        player.x = data[i].x;
+        player.y = data[i].y;
+        ctx.arc(ctx.canvas.width / 2, ctx.canvas.height / 2, 20, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillText(data[i].nick, ctx.canvas.width / 2, ctx.canvas.height / 2 - 30);
+      }else {
+        ctx.arc(data[i].x + ctx.canvas.width / 2 - player.x, data[i].y + ctx.canvas.height / 2 - player.y, 20, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.fillText(data[i].nick, data[i].x, data[i].y - 30);
       }
     }
     ctx.fillStyle = "#cbcbcb";
