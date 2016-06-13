@@ -93,7 +93,7 @@ setInterval(function () {
   for(var i in playerList){
     var player = playerList[i];
     player.updatePos();
-    pack.push({x: player.x, y:player.y, color:player.color, nick:player.nick});
+    pack.push({x: player.x, y:player.y, color:player.color, nick:player.nick, id:player.id});
   }
   for (var i in socketList) {
     var socket = socketList[i];
