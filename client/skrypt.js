@@ -35,7 +35,7 @@ function start() {
 
     for (var x = 0; x < 10; x++) {
       for (var y = 0; y < 10; y++) {
-        ctx.drawImage(siatka, x * 1001 + ctx.canvas.width / 2 - player.x, y * 1000 + ctx.canvas.height / 2 - player.y);
+        ctx.drawImage(siatka, x * 1000 + ctx.canvas.width / 2 - player.x, y * 1000 + ctx.canvas.height / 2 - player.y);
       }
     }
 
