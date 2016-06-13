@@ -19,6 +19,7 @@ function start() {
 
   socket.on("id", function (data) {
     id = data;
+    console.log(id);
   });
 
   socket.on("ileOnline", function (data) {
