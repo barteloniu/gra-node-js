@@ -36,7 +36,7 @@ function start() {
       ctx.fillText(data[i].nick, data[i].x, data[i].y - 30);
 
       if(data[i].id == id){
-        ctx.canvas.style.border = "1px solid " + data[id].color;
+        ctx.canvas.style.border = "1px solid " + data[i].color;
       }
     }
     ctx.fillStyle = "#cbcbcb";
