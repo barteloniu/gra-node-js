@@ -27,7 +27,7 @@ var Player = function (id) {
   };
   self.updatePos = function () {
     if(self.czyD)self.speedX+= 0.1;
-    else self.speedX-= 0.1;
+    else console.log("maslo");;
     if(self.czyA)self.speedX-= 0.1;
     else self.speedX+= 0.1;
     if(self.czyS)self.speedY+= 0.1;
