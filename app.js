@@ -31,10 +31,10 @@ var Player = function (id) {
     if(self.czyS)self.speedY+= 0.2;
     if(self.czyW)self.speedY-= 0.2;
 
-    if(!self.czyD && self.speedX > 0) self.speedX-= 0.2;
-    if(!self.czyA && self.speedX < 0) self.speedX+= 0.2;
-    if(!self.czyS && self.speedY > 0) self.speedY-= 0.2;
-    if(!self.czyW && self.speedY < 0) self.speedY+= 0.2;
+    if(!self.czyD && self.speedX >= 0) self.speedX-= 0.2;
+    if(!self.czyA && self.speedX <= 0) self.speedX+= 0.2;
+    if(!self.czyS && self.speedY >= 0) self.speedY-= 0.2;
+    if(!self.czyW && self.speedY <= 0) self.speedY+= 0.2;
 
     if(self.speedX < -5) self.speedX = -5;
     if(self.speedX > 5) self.speedX = 5;
