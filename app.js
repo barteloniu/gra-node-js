@@ -35,6 +35,8 @@ var Player = function (id) {
     if(self.speedX > 5) self.speedX = 5;
     if(self.speedY < -5) self.speedY = -5;
     if(self.speedY > 5) self.speedY = 5;
+
+    console.log(self.speedX);
     self.x+= self.speedX;
     self.y+= self.speedY;
   };
