@@ -27,8 +27,8 @@ var Player = function (id) {
   };
   self.updatePos = function () {
 
-    self.speedX*= 0.98;
-    self.speedY*= 0.98;
+    self.speedX*= 0.95;
+    self.speedY*= 0.95;
 
     if(self.czyD)self.speedX+= 0.2;
     if(self.czyA)self.speedX-= 0.2;
