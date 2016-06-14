@@ -26,15 +26,15 @@ var Player = function (id) {
     nick:""
   };
   self.updatePos = function () {
-    if(self.czyD)self.speedX+= 0.1;
-    if(self.czyA)self.speedX-= 0.1;
-    if(self.czyS)self.speedY+= 0.1;
-    if(self.czyW)self.speedY-= 0.1;
+    if(self.czyD)self.speedX+= 0.2;
+    if(self.czyA)self.speedX-= 0.2;
+    if(self.czyS)self.speedY+= 0.2;
+    if(self.czyW)self.speedY-= 0.2;
 
-    if(!self.czyD && self.speedX > 0) self.speedX-= 0.1;
-    if(!self.czyA && self.speedX < 0) self.speedX+= 0.1;
-    if(!self.czyS && self.speedY > 0) self.speedY-= 0.1;
-    if(!self.czyW && self.speedY < 0) self.speedY+= 0.1;
+    if(!self.czyD && self.speedX > 0) self.speedX-= 0.2;
+    if(!self.czyA && self.speedX < 0) self.speedX+= 0.2;
+    if(!self.czyS && self.speedY > 0) self.speedY-= 0.2;
+    if(!self.czyW && self.speedY < 0) self.speedY+= 0.2;
 
     if(self.speedX < -5) self.speedX = -5;
     if(self.speedX > 5) self.speedX = 5;
