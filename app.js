@@ -20,15 +20,23 @@ var Player = function (id) {
     czyA: false,
     czyW: false,
     czyS: false,
-    speed:5,
+    speedX:0,
+    speedY:0,
     color: "#000",
     nick:""
   };
   self.updatePos = function () {
-    if(self.czyD)self.x+= self.speed;
-    if(self.czyA)self.x-= self.speed;
-    if(self.czyS)self.y+= self.speed;
-    if(self.czyW)self.y-= self.speed;
+    if(self.czyD)self.x+= 0.1;
+    if(self.czyA)self.x-= 0.1;
+    if(self.czyS)self.y+= 0.1;
+    if(self.czyW)self.y-= 0.1;
+
+    if(self.speedX < -5) self.speedX = -5;
+    if(self.speedX > 5) self.speedX = 5;
+    if(self.speedY < -5) self.speedY = -5;
+    if(self.speedY > 5) self.speedY = 5;
+    self.x+= self.speedX;
+    self.y+= self.speedY;
   };
   return self;
 }
