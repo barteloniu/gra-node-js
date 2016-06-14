@@ -27,13 +27,14 @@ var Player = function (id) {
   };
   self.updatePos = function () {
     if(self.czyD)self.speedX+= 0.1;
-    else self.speedX = 0;
     if(self.czyA)self.speedX-= 0.1;
-    else self.speedX+= 0.1;
     if(self.czyS)self.speedY+= 0.1;
-    else self.speedY-= 0.1;
     if(self.czyW)self.speedY-= 0.1;
-    else self.speedY+= 0.1;
+
+    if(!self.czyD && self.x > 0) self.speedX--;
+    if(!self.czyA && self.x < 0) self.speedX++;
+    if(!self.czyS && self.y > 0) self.speedY--;
+    if(!self.czyW && self.y < 0) self.speedY++;
 
     if(self.speedX < -5) self.speedX = -5;
     if(self.speedX > 5) self.speedX = 5;
