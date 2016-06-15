@@ -10,6 +10,7 @@ app.use("/client", express.static(__dirname + "/client"));
 server.listen(port);
 
 console.log("Server started on port " + port + "!");
+console.log("maslo");
 
 var Player = function (id) {
   var self = {
