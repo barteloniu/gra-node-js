@@ -31,7 +31,7 @@ function start() {
 
   socket.on("players", function (data) {
     ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = windwo.innerHeight;
+    ctx.canvas.height = window.innerHeight;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     for (var x = -10; x < 10; x++) {
