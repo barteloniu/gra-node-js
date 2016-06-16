@@ -5,10 +5,12 @@
 		<link rel="icon" href="client/node.png">
 	</head>
 	<body style="font-family: Arial; margin:0px;">
-		<center>
-		<input type="text" id="nick" autofocus="autofocus" placeholder="nick" style="display: table-cell; vertical-align:middle;">
-		<button onclick="start()" id="grajButton">Graj!</button>
-		</center>
+		<div style="display:table;">
+			<div>
+				<input type="text" id="nick" autofocus="autofocus" placeholder="nick" style="display: table-cell; vertical-align:middle;">
+				<button onclick="start()" id="grajButton">Graj!</button>
+			</div>
+		</div>
 		<canvas style="border: 1px solid #000; display: none;" width="500" height="500" id="canvas"></canvas>
 		<img src="client/siatka.png" id="siatka" style="display:none;">
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
