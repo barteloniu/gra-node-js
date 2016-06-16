@@ -48,7 +48,6 @@ function start() {
       ctx.beginPath();
 
       if(data[i].id == player.id){
-        ctx.canvas.style.border = "1px solid " + data[i].color;
         player.x = data[i].x;
         player.y = data[i].y;
         ctx.arc(ctx.canvas.width / 2, ctx.canvas.height / 2, 20, 0, 2 * Math.PI);
