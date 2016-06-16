@@ -15,8 +15,7 @@ document.getElementById("nick").onkeydown = function (event) {
 };
 
 function start() {
-  document.getElementById("grajButton").style.display = "none";
-  document.getElementById("nick").style.display = "none";
+  document.getElementById("divNick").style.display = "none";
   document.getElementById("canvas").style.display = "inline";
   var socket = io();
 
