@@ -30,8 +30,8 @@ function start() {
   });
 
   socket.on("players", function (data) {
-    ctx.canvas.width = document.width;
-    ctx.canvas.height = document.height;
+    ctx.canvas.width = document.body.clientWidth;
+    ctx.canvas.height = document.body.clientHeight.height;
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     for (var x = -10; x < 10; x++) {
