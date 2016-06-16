@@ -16,7 +16,7 @@ document.getElementById("nick").onkeydown = function (event) {
 
 function start() {
   document.getElementById("divNick").style.display = "none";
-  document.getElementById("canvas").style.display = "inline";
+  document.getElementById("canvas").style.display = "block";
   var socket = io();
 
   socket.emit("nick", document.getElementById("nick").value);
